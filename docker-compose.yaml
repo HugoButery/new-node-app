@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+  mysql:
+    image: "mysql"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=webapp
+    ports:
+      - 3306:3306
